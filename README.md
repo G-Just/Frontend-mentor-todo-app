@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Design deployed at: [Github-pages](https://g-just.github.io/frontend-mentor-todo-app/)
 
 ## My process
 
