@@ -6,27 +6,45 @@
 }
 
 :root {
-  --dark-background: hsl(235, 21%, 11%);
-  --dark-foreground: hsl(235, 24%, 19%);
-  --dark-text: hsl(234, 39%, 85%);
-  --dark-completed-text: hsl(234, 11%, 52%);
-  --dark-circle: hsl(237, 14%, 26%);
-  --dark-active: hsl(220, 98%, 61%);
-  --hover: linear-gradient(120deg, rgba(87, 221, 255, 1) 0%, rgba(192, 88, 243, 1) 100%);
+  --background: hsl(235, 21%, 11%);
+  --foreground: hsl(235, 24%, 19%);
+  --text: hsl(234, 39%, 85%);
+  --completed-text: hsl(234, 11%, 52%);
+  --active: hsl(220, 98%, 61%);
+  --hover-grad: linear-gradient(
+    120deg,
+    rgba(87, 221, 255, 1) 0%,
+    rgba(192, 88, 243, 1) 100%
+  );
+  --background-img-mob: url(../images/bg-mobile-dark.jpg);
+  --background-img-desk: url(../images/bg-desktop-dark.jpg);
+  --hover: hsl(236, 33%, 92%);
+  --background-pos: 25%;
+}
+.light-theme {
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(236, 33%, 92%);
+  --background-img-mob: url(../images/bg-mobile-light.jpg);
+  --background-img-desk: url(../images/bg-desktop-light.jpg);
+  --text: hsl(235, 19%, 35%);
+  --hover: hsl(235, 19%, 35%);
+  --completed-text: hsl(236, 9%, 61%);
+  --background-pos: 50%;
 }
 
 body {
   color: white;
-  background-image: url(../images/bg-mobile-dark.jpg);
+  background-image: var(--background-img-mob);
   background-repeat: no-repeat;
-  background-color: var(--dark-background);
+  background-position-x: var(--background-pos);
+  background-color: var(--background);
   font-size: 18px;
   height: 100vh;
   margin: 0 !important;
 }
 
 body > p {
-  color: var(--dark-completed-text);
+  color: var(--completed-text);
   margin: 0;
   padding-bottom: 30px;
   text-align: center;
@@ -35,6 +53,12 @@ body > p {
 #content {
   padding: 15px;
   max-width: 574px;
+}
+
+.input-box,
+#tasks,
+#filters {
+  box-shadow: 0 20px 40px 5px rgba(0, 0, 0, 0.2);
 }
 
 #header {
@@ -46,7 +70,7 @@ body > p {
 
 #header > h1 {
   margin: 0;
-  letter-spacing: 10px;
+  letter-spacing: 15px;
   font-weight: 700;
   font-size: 1.5em;
 }
@@ -62,7 +86,7 @@ body > p {
 .input-box,
 .task-box {
   display: flex;
-  background-color: var(--dark-foreground);
+  background-color: var(--foreground);
   align-items: center;
   justify-content: center;
   padding: 0 20px;
@@ -70,11 +94,11 @@ body > p {
 }
 
 .input::placeholder {
-  color: var(--dark-completed-text);
+  color: var(--completed-text);
 }
 
 .input {
-  color: var(--dark-text);
+  color: var(--text);
   flex-grow: 1;
   height: 50px;
   line-height: 50px;
@@ -91,7 +115,7 @@ body > p {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: 1px solid var(--dark-circle);
+  border: 1px solid var(--completed-text);
   position: relative;
 }
 
@@ -105,25 +129,29 @@ body > p {
   bottom: 0;
   border-radius: 50px;
   border: 1px solid transparent;
-  background: var(--hover) border-box;
+  background: var(---hover-grad) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
 
 .delete {
-  color: var(--dark-circle);
+  color: var(--completed-text);
   cursor: pointer;
+}
+
+.delete:hover {
+  color: var(--hover);
 }
 
 #tasks {
   margin-top: 20px;
   border-radius: 5px;
-  background-color: var(--dark-foreground) !important;
+  background-color: var(--foreground) !important;
 }
 
 .task-box {
-  border-bottom: 1px solid var(--dark-circle);
+  border-bottom: 1px solid var(--completed-text);
   background-color: transparent;
 }
 
@@ -135,12 +163,13 @@ body > p {
 }
 
 #info > p {
-  color: var(--dark-completed-text);
+  color: var(--completed-text);
   font-size: 12px;
 }
 
-#clear-complete {
+#clear-complete:hover {
   cursor: pointer;
+  color: var(--hover);
 }
 
 #filters {
@@ -151,11 +180,15 @@ body > p {
 
 #filters > p {
   cursor: pointer;
-  color: var(--dark-completed-text);
+  color: var(--completed-text);
+}
+
+#filters > p:hover {
+  color: var(--hover);
 }
 
 .active {
-  color: var(--dark-active) !important;
+  color: var(--active) !important;
 }
 
 @media (min-width: 375px) {
@@ -163,9 +196,9 @@ body > p {
     font-size: 18px;
   }
   body {
-    background-image: url(../images/bg-desktop-dark.jpg);
+    background-image: var(--background-img-desk);
     background-repeat: no-repeat;
-    background-color: var(--dark-background);
+    background-color: var(--background);
     display: flex;
     align-items: center;
     flex-direction: column;

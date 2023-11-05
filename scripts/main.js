@@ -56,7 +56,7 @@ function check(id) {
     checkbox[0].style.padding = "0 3.5px";
     checkbox[0].innerHTML = `<img src='./images/icon-check.svg'/>`;
     text.style.textDecoration = "line-through";
-    text.style.color = `hsl(234, 11%, 52%)`;
+    text.style.color = `var(--completed-text)`;
   } else {
     checkbox[0].classList.remove("checked");
     checkbox[0].style.background = "transparent";
@@ -104,3 +104,16 @@ function filter(by) {
       break;
   }
 }
+
+const theme = document.getElementById("theme");
+const body = document.body;
+theme.addEventListener("click", () => {
+  if (!body.classList.contains("light-theme")) {
+    body.classList.add("light-theme");
+    theme.setAttribute("src", "./images/icon-sun.svg");
+    document;
+  } else {
+    body.classList.remove("light-theme");
+    theme.setAttribute("src", "./images/icon-moon.svg");
+  }
+});
