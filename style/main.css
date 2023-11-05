@@ -97,7 +97,8 @@ body > p {
   color: var(--completed-text);
 }
 
-.input {
+.input,
+.task-input {
   color: var(--text);
   flex-grow: 1;
   height: 50px;
@@ -215,7 +216,8 @@ body > p {
   #header > h1 {
     font-size: 2em;
   }
-  .input {
+  .input,
+  .task-input {
     line-height: 67px;
     height: 67px;
     font-size: 18px;

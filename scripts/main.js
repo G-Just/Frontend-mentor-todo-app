@@ -12,14 +12,22 @@ function addTask(text) {
   task = document.createElement("div");
   task.classList.add("task-box");
   task.setAttribute("id", `${globId}`);
+  task.setAttribute("draggable", `true`);
   task.innerHTML = `<div class="circle ${globId}" onClick="check(${globId})"></div>
-  <p class="input" id='text${globId}'>${text}</p>
+  <p class="task-input" id='text${globId}'>${text}</p>
   <div class="delete" onClick="del(${globId})">&#x2715;</div>`;
   taskList.insertBefore(task, info);
   input.value = "";
   globId++;
   countLocal++;
   count.innerHTML = `${countLocal} items left`;
+  //add an drag event listener to created element
+  task.addEventListener("dragstart", function () {
+    this.classList.add("dragging");
+  });
+  task.addEventListener("dragend", function (e) {
+    this.classList.remove("dragging");
+  });
 }
 
 function del(id) {
@@ -106,8 +114,9 @@ function filter(by) {
 }
 
 const theme = document.getElementById("theme");
-const body = document.body;
 theme.addEventListener("click", () => {
+  //theme change event
+  body = document.body;
   if (!body.classList.contains("light-theme")) {
     body.classList.add("light-theme");
     theme.setAttribute("src", "./images/icon-sun.svg");
