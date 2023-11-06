@@ -16,7 +16,7 @@ function addTask(text) {
   task.innerHTML = `<div class="circle ${globId}" onClick="check(${globId})"></div>
   <p class="task-input" id='text${globId}'>${text}</p>
   <div class="delete" onClick="del(${globId})">&#x2715;</div>`;
-  taskList.insertBefore(task, info);
+  taskList.appendChild(task);
   input.value = "";
   globId++;
   countLocal++;
@@ -126,3 +126,17 @@ theme.addEventListener("click", () => {
     theme.setAttribute("src", "./images/icon-moon.svg");
   }
 });
+
+const container = document.getElementById("tasks");
+
+function getAfterInsertElement(e) {
+  e.preventDefault();
+  const dragedElement = document.querySelector(".dragging");
+  const elements = [...container.querySelectorAll(".task-box:not(.dragging)")];
+  let anchor = elements.find((element) => {
+    return e.clientY <= element.offsetTop + element.offsetHeight / 2;
+  });
+  container.insertBefore(dragedElement, anchor);
+}
+
+container.addEventListener("dragover", getAfterInsertElement);

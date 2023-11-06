@@ -56,9 +56,9 @@ body > p {
 }
 
 .input-box,
-#tasks,
+#info,
 #filters {
-  box-shadow: 0 20px 40px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px 5px rgba(0, 0, 0, 0.3);
 }
 
 #header {
@@ -147,13 +147,14 @@ body > p {
 
 #tasks {
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   background-color: var(--foreground) !important;
 }
 
 .task-box {
   border-bottom: 1px solid var(--completed-text);
   background-color: transparent;
+  cursor: grab;
 }
 
 #info {
@@ -161,6 +162,8 @@ body > p {
   align-items: center;
   justify-content: space-between;
   padding: 5px 20px;
+  background: var(--foreground);
+  border-radius: 0 0 5px 5px;
 }
 
 #info > p {
