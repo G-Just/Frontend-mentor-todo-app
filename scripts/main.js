@@ -44,12 +44,14 @@ function del(id) {
     countLocal--;
     count.innerHTML = `${countLocal} items left`;
   }
+  checkEventCount();
 }
 
 document.addEventListener("keypress", function (btn) {
   //"enter" keypress will submit the new todo item
   if (btn.key === "Enter") {
     addTask(`${input.value}`);
+    checkEventCount();
   }
 });
 
@@ -140,3 +142,17 @@ function getAfterInsertElement(e) {
 }
 
 container.addEventListener("dragover", getAfterInsertElement);
+
+function checkEventCount() {
+  if (!container.childElementCount) {
+    div = document.createElement("div");
+    div.setAttribute("id", "msg-empty");
+    div.classList.add("task-box");
+    div.style.cursor = "default";
+    div.innerHTML = `<p style="text-align: center; color: var(--completed-text)" class="task-input" id="text0">No items</p>`;
+    container.appendChild(div);
+  } else {
+    container.removeChild(document.getElementById("msg-empty"));
+  }
+}
+checkEventCount();
