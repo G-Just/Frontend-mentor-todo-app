@@ -120,20 +120,9 @@ body > p {
   position: relative;
 }
 
-.circle:hover::after {
+.circle:hover {
   cursor: pointer;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50px;
-  border: 1px solid transparent;
-  background: var(---hover-grad) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
+  border-color: var(--active);
 }
 
 .delete {
