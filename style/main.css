@@ -109,6 +109,8 @@ body > p {
   margin: 0;
   font-size: 14px;
   outline: none;
+  overflow: hidden;
+  max-width: 439px;
 }
 
 .circle,
