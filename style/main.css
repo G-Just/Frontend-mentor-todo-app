@@ -215,6 +215,7 @@ body > p {
     line-height: 67px;
     height: 67px;
     font-size: 18px;
+    max-width: 277px;
   }
 }
 
