@@ -88,7 +88,6 @@ body > p {
   display: flex;
   background-color: var(--foreground);
   align-items: center;
-  justify-content: center;
   padding: 0 20px;
   gap: 15px;
 }
@@ -110,7 +109,11 @@ body > p {
   font-size: 14px;
   outline: none;
   overflow: hidden;
-  max-width: 439px;
+  max-width: 277px;
+}
+
+#msg-empty {
+  justify-content: center;
 }
 
 .circle,
@@ -215,7 +218,7 @@ body > p {
     line-height: 67px;
     height: 67px;
     font-size: 18px;
-    max-width: 277px;
+    max-width: 439px;
   }
 }
 
